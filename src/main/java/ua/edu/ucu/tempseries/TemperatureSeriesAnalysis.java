@@ -78,7 +78,7 @@ public class TemperatureSeriesAnalysis {
         for (int i = 0; i < size; i ++) {
             double temp = temperatureSeries[i];
             ans = (Math.abs(temp) > Math.abs(ans)) ? ans : (
-                    (temp == -ans) ? (Math.max(temp, ans)) : temp
+                    (Math.abs(temp+ans) < Double.MIN_VALUE) ? (Math.max(temp, ans)) : temp
             );
         }
         return ans;
@@ -90,7 +90,7 @@ public class TemperatureSeriesAnalysis {
         for (int i = 0; i < size; i ++) {
             double temp = temperatureSeries[i];
             ans = (Math.abs(temp-tempValue) > Math.abs(ans-tempValue)) ? ans : (
-                    ((tempValue-temp) == (ans-tempValue)) ? (Math.max(temp, ans)) : temp
+                    (Math.abs(tempValue*2-temp-ans) < Double.MIN_VALUE) ? (Math.max(temp, ans)) : temp
             );
         }
         return ans;
