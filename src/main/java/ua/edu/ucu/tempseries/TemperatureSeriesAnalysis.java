@@ -30,7 +30,7 @@ public class TemperatureSeriesAnalysis {
         }
     }
 
-    private void checkSeriesNonEmpty()throws IllegalArgumentException {
+    private void checkSeriesNonEmpty() throws IllegalArgumentException {
         if (size == 0 || temperatureSeries.length == 0) {
             throw new IllegalArgumentException("Series must not be empty");
         }
